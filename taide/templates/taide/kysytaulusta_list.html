@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raportti kyselyistä</title>
+</head>
+<body>
+<h2>Tauluja kyselleet</h2>
+<hr>
+{% load static %}
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Teoksen nimi</th>
+        <th>Kysyjä</th>
+        <th>Pvm</th>
+      </tr>
+    </thead>
+      <tbody>
+      {% for item in object_list %}
+          <tr>
+            <td>{{ item.taulu }}</td>
+            <td>{{ item.maili }}</td>
+            <td>{{ item.aika }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+{#    {% for item in object_list %}#}
+{#        {{ item.taide }} {{ item.maili }}#}
+{#        <table>{{ item.taide }} {{ item.maili }}</table>#}
+</div>
+
+</body>
+</html>

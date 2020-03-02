@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Tarjous taulusta</title>
+  <style>
+    body {
+      background-color: #f7f7f7;
+        font-family: Chilanka, cursive, sans-serif;
+    }
+  </style>
+</head>
+<body>
+{% load static %}
+  {% for paragraph in paragraphs %}
+{#      <img style="width:50%" src="{% static "images/" %}{{ paragraph.kuva }}" alt = 'jaahas'>#}
+      <h2>{{ paragraph.nimi }}</h2>
+      <p>Koko: {{ paragraph.koko }}</p>
+      <br>
+      <p>{{ paragraph.tarina }}</p>
+      <br>
+      <p>Teoksen hinta on {{ paragraph.hinta }} €.</p>
+      <p>Maksu MobilePay tai vastaava.</p>
+      <p>Taulun voi noutaa minulta suoraan osoitteesta Reunaniitty 4 c 3.
+          Toimitan sen myös postiennakolla toivomaasi osoitteeseen.</p>
+            <br>
+            <br>
+            <br>
+      <p>Karo Tapiovaara mob: +358 50 550 2050</p>
+  {% endfor %}
+</body>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+<footer class="aligned text-center">© KaroArt 2020</footer>
+</html>
