@@ -1,17 +1,24 @@
 <html>
 <head>
   <title>Tarjous taulusta</title>
+
+
+
   <style>
     body {
       background-color: #f7f7f7;
         font-family: Chilanka, cursive, sans-serif;
+    }
+    img {
+        height: 25%;
+        width: 25%;
     }
   </style>
 </head>
 <body>
 {% load static %}
   {% for paragraph in paragraphs %}
-{#      <img style="width:50%" src="{% static "images/" %}{{ paragraph.kuva }}" alt = 'jaahas'>#}
+      <img src="{% static 'images/' %}{{ paragraph.kuva }}" alt = 'ei hitsi vaan'>
       <h2>{{ paragraph.nimi }}</h2>
       <p>Koko: {{ paragraph.koko }}</p>
       <br>

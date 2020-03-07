@@ -7,86 +7,10 @@
 
 <body>
 {% load static %}
-    <div class="container">
-            <div id="myCarousel" class=" container carousel slide" data-ride="carousel">
-                <div class="carousel-inner center shadow width=100% height =500px">
-                    <div class="carousel-item active">
-                        <img src="{% static "images/karo_1.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_2.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_3.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_4.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_5.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_6.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_7.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_8.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-{#                    <div class="carousel-item">#}
-{#                        <img src="{% static "images/karo_9.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">#}
-{#                    </div>#}
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_10.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_11.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_12.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_13.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_41.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-{#                    <div class="carousel-item">#}
-{#                        <img src="{% static "images/karo_15.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">#}
-{#                    </div>#}
-{#                    <div class="carousel-item">#}
-{#                        <img src="{% static "images/karo_16.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">#}
-{#                    </div>#}
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_17.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_18.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-{#                    <div class="carousel-item">#}
-{#                        <img src="{% static "images/karo_19.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">#}
-{#                    </div>#}
-{#                    <div class="carousel-item">#}
-{#                        <img src="{% static "images/karo_20.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">#}
-{#                    </div>#}
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_21.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static "images/karo_22.jpg" %}" class="img-fluid center mx-auto d-block" style="height: 400px;">
-                    </div>
-                </div>
-                         <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
-
-            </div>
+    <div class="container-fluid">
+        <img src="{% static "images/karo_45.jpg" %}" class="img-fluid">
     </div>
-<br>
+<hr>
      <div class="container">
          <div class="card-columns">
         {% for taulu in object_list %}
@@ -94,9 +18,9 @@
                 <img class="rounded img-fluid" src="{% static "images/" %}{{ taulu.kuva }}" data-toggle="tooltip" title='{{ taulu.tarina }}'>
 {#                <a href="{% url 'projektit:detail' proj.id %}" data-toggle="tooltip" title='{{ proj.shortdescription }}'>#}
                 <div>
-                    <h2 class="card-title">{{ taulu.nimi  }}    <a href="{% url 'taide:printrequest' taulu.pk %}"
+                    <h3 class="card-title">{{ taulu.nimi  }}    <a href="{% url 'taide:printrequest' taulu.pk %}"
                        class="btn btn-outline-info btn-sm">
-                        Tulosta tarjous</a></h2>
+                        Tulosta tarjous</a></h3>
                 </div>
                 <p>{{ taulu.materiaali }}, {{ taulu.koko }} cm</p>
                 <p>{{ taulu.hinta }} €</p>
@@ -108,6 +32,27 @@
          </div>
      </div>
 <hr>
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner center shadow">
+            <div class="carousel-item active">
+                <img src="{% static "images/karo_31.jpg" %}" class="img-fluid">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static "images/karo_32.jpg" %}" class="img-fluid">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static "images/karo_33.jpg" %}" class="img-fluid">
+            </div>
+        </div>
+         <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
 </body>
     <footer class="aligned text-center">© Karo Tapiovaara 2020</footer>
 {% endblock %}

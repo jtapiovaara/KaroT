@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Parhaat runot</title>
+  <title>Näyttelylista</title>
     {% load static %}
   <style>
 }
@@ -9,11 +9,15 @@
         {#background-color: cornsilk;#}
         font-family: Chilanka, cursive, sans-serif;
     }
+    img {
+        height: 25%;
+        width: 25%;
+    }
   </style>
 </head>
 <body>
   {% for paragraph in paragraphs %}
-{#      <img style="width:50%" src="{% static "images/" %}{{ paragraph.picture }}" alt = 'jaahas'>#}
+      <img src="{% static "images/" %}{{ paragraph.kuva }}" alt = 'jaahas'>
       <h2>{{ paragraph.nimi }}</h2>
       <p>{{ paragraph.hinta }} €</p>
       <p>{{ paragraph.tarina | linebreaksbr  }}</p>
