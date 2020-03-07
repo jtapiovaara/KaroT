@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Parhaat runot</title>
+    {% load static %}
+  <style>
+}
+    body {
+        {#background-color: #f7f7f7;#}
+        {#background-color: cornsilk;#}
+        font-family: Chilanka, cursive, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  {% for paragraph in paragraphs %}
+{#      <img style="width:50%" src="{% static "images/" %}{{ paragraph.picture }}" alt = 'jaahas'>#}
+      <h2>{{ paragraph.nimi }}</h2>
+      <p>{{ paragraph.hinta }} €</p>
+      <p>{{ paragraph.tarina | linebreaksbr  }}</p>
+      <hr>
+  {% endfor %}
+</body>
+</html>

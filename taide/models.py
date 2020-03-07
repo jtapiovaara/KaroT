@@ -13,6 +13,9 @@ class TauluTaulu(models.Model):
     def __str__(self):
         return self.nimi
 
+    class Meta:
+        ordering = ('nimi',)
+
 
 class KysyTaulusta(models.Model):
     maili = models.EmailField()

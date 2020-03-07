@@ -1,5 +1,9 @@
 from django import forms
+from.models import KysyTaulusta
 
 
-class Taulukysymys(forms.Form):
-    maili = forms.EmailField()
+class Tiedustelu(forms.ModelForm):
+    class Meta:
+        model = KysyTaulusta
+        fields = {'maili'
+                  }

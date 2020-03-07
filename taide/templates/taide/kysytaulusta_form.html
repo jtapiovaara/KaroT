@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+        {% load crispy_forms_tags %}
+        <title>Kysy taiteestani</title>
+    <div class="container">
+        <form method = 'post' class="form-group">
+            <p>Jos toivot tietoja tauluistani {{ taulu.nimi }}, ole hyvä ja anna sähköpostiosoitteesi.</p>
+            {% csrf_token %}
+            {{ form|crispy }}
+        {#    {{ form.as_p }}#}
+            <button type = 'submit' name ='save'> Lähetä</button>
+        </form>
+    </div>
+{% endblock %}
