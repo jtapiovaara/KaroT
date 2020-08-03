@@ -13,10 +13,14 @@
 <hr>
      <div class="container">
          <div class="card-columns">
+
+{#         Voi olla view.onsale, view.sold tai view.onexhibit tai object_list#}
         {% for taulu in object_list %}
+{#        {% for taulu in view.sold %}#}
+{#        {% for taulu in view.onexhibit %}#}
+{#        {% for taulu in view.onsale %}#}
             <div class="card card-body shadow">
                 <img class="rounded img-fluid" src="{% static "images/" %}{{ taulu.kuva }}" data-toggle="tooltip" title='{{ taulu.tarina }}'>
-{#                <a href="{% url 'projektit:detail' proj.id %}" data-toggle="tooltip" title='{{ proj.shortdescription }}'>#}
                 <div>
                     <h3 class="card-title">{{ taulu.nimi  }}    <a href="{% url 'taide:printrequest' taulu.pk %}"
                        class="btn btn-outline-info btn-sm">
@@ -36,14 +40,13 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner center shadow">
             <div class="carousel-item active">
-                <img src="{% static "images/karo_31.jpg" %}" class="img-fluid">
+                <img src="{% static "images/karo_31.jpg" %}" class="img-fluid" style="height: 200px">
             </div>
-            <div class="carousel-item">
-                <img src="{% static "images/karo_32.jpg" %}" class="img-fluid">
+            {% for taulu in object_list %}
+                <div class="carousel-item">
+                <img src="{% static "images/" %}{{ taulu.kuva }}" class="img-fluid" style="height: 200px">
             </div>
-            <div class="carousel-item">
-                <img src="{% static "images/karo_33.jpg" %}" class="img-fluid">
-            </div>
+            {% endfor %}
         </div>
          <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>

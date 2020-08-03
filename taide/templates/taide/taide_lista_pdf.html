@@ -2,26 +2,26 @@
 <head>
   <title>Näyttelylista</title>
     {% load static %}
-  <style>
+<style>
+
+body {
+    {#background-color: #f7f7f7;#}
+    {#background-color: cornsilk;#}
+    font-family: Chilanka, cursive, sans-serif;
 }
-    body {
-        {#background-color: #f7f7f7;#}
-        {#background-color: cornsilk;#}
-        font-family: Chilanka, cursive, sans-serif;
-    }
-    img {
-        height: 25%;
-        width: 25%;
-    }
-  </style>
+img {
+    height: 25%;
+    width: 25%;
+}
+</style>
 </head>
 <body>
-  {% for paragraph in paragraphs %}
-      <img src="{% static "images/" %}{{ paragraph.kuva }}" alt = 'jaahas'>
-      <h2>{{ paragraph.nimi }}</h2>
-      <p>{{ paragraph.hinta }} €</p>
-      <p>{{ paragraph.tarina | linebreaksbr  }}</p>
-      <hr>
-  {% endfor %}
+      {% for paragraph in paragraphs %}
+          <img src="{% static "images/" %}{{ paragraph.kuva }}" alt = 'jaahas'>
+          <h2>{{ paragraph.nimi }}</h2>
+          <p>{{ paragraph.hinta }} €</p>
+          <p>{{ paragraph.tarina | linebreaksbr  }}</p>
+          <hr>
+      {% endfor %}
 </body>
 </html>

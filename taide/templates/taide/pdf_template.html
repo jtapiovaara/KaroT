@@ -18,7 +18,7 @@
 <body>
 {% load static %}
   {% for paragraph in paragraphs %}
-      <img src="{% static 'images/' %}{{ paragraph.kuva }}" alt = 'ei hitsi vaan'>
+      <img src="{% static 'images/' %}{{ paragraph.kuva }}" alt = 'Hieno teos!'>
       <h2>{{ paragraph.nimi }}</h2>
       <p>Koko: {{ paragraph.koko }}</p>
       <br>
@@ -26,9 +26,8 @@
       <br>
       <p>Teoksen hinta on {{ paragraph.hinta }} €.</p>
       <p>Maksu MobilePay tai vastaava.</p>
-      <p>Taulun voi noutaa minulta suoraan osoitteesta Reunaniitty 4 c 3.
-          Toimitan sen myös postiennakolla toivomaasi osoitteeseen.</p>
-            <br>
+      <p>Toimitan teoksen postiennakolla toivomaasi osoitteeseen. Taulun voi noutaa toki minulta suoraan.</p>
+      <p>Kysy tarkemmin mailitse (jabadabaduu1962@gmail.com).</p>
             <br>
             <br>
       <p>Karo Tapiovaara mob: +358 50 550 2050</p>

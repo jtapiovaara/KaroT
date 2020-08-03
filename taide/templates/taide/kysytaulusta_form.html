@@ -3,13 +3,19 @@
 {% block page_content %}
             <title>Kysy taiteestani</title>
     <div class="container">
-    <p>Jos toivot tietoja taulustani {{ nimi }}, ole hyvä ja anna sähköpostiosoitteesi.</p>
+        <p>Kerron mielelläni lisää  "<b>{{ kysytty.nimi }}</b>" -taulusta, ole hyvä ja anna sähköpostiosoitteesi.</p>
         {% load crispy_forms_tags %}
         <form method = 'post' class="form-group">
             {% csrf_token %}
-            {{ form|crispy }}
+            {{ form | crispy }}
         {#    {{ form.as_p }}#}
             <button type = 'submit' name ='save'> Lähetä</button>
         </form>
+        {% if message %}
+        <div class="notification {{ message_class }} alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+        </div>
+        {% endif %}
+
     </div>
 {% endblock %}

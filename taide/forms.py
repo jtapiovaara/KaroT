@@ -5,6 +5,7 @@ from.models import KysyTaulusta
 class Tiedustelu(forms.ModelForm):
     class Meta:
         model = KysyTaulusta
-        fields = {'taulu',
-                  'maili'
+        fields = {
+            'tiedustelu',
+            'maili'
                   }

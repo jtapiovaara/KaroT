@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Raportti kyselyistä</title>
+    <title>Raportti myydyistä tauluista</title>
 </head>
 <body>
-<h2>Tauluja kyselleet</h2>
+<h2>Myydyt taulut</h2>
 <hr>
 {% load static %}
 <div class="container">
@@ -13,16 +13,16 @@
     <thead>
       <tr>
         <th>Teoksen nimi</th>
-        <th>Kysyjä</th>
-        <th>Pvm</th>
+        <th>Omistaja</th>
+        <th>Hinta</th>
       </tr>
     </thead>
       <tbody>
-      {% for item in object_list %}
+      {% for item in myynti %}
           <tr>
-            <td>{{ item.tiedustelu }}</td>
-            <td>{{ item.maili }}</td>
-            <td>{{ item.aika }}</td>
+            <td>{{ item.nimi }}</td>
+            <td>{{ item.omistaja }}</td>
+            <td>{{ item.hinta }}</td>
           </tr>
         {% endfor %}
       </tbody>

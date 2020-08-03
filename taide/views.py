@@ -1,6 +1,5 @@
 from django.views import generic
-from django.views.generic.edit import CreateView
-from django.shortcuts import reverse, redirect
+from django.shortcuts import render
 from .models import TauluTaulu, KysyTaulusta
 
 # Here are libraries for printing
@@ -8,6 +7,7 @@ from .models import TauluTaulu, KysyTaulusta
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from taide.forms import Tiedustelu
 
 from weasyprint import HTML
 
@@ -16,14 +16,48 @@ from weasyprint import HTML
 class TaideLista(generic.ListView):
     model = TauluTaulu
 
+    def onsale(self):
+        return TauluTaulu.objects.filter(tila__exact='Vapaa')
 
-class MailiCreate(CreateView):
-    model = KysyTaulusta
-    fields = ['maili'
-              ]
+    def onexhibit(self):
+        return TauluTaulu.objects.filter(tila__exact='Näyttelyssä')
 
-    def get_success_url(self):
-        return reverse('taide:home')
+
+def sold(request):
+    myynti = TauluTaulu.objects.filter(tila__exact='Myyty')
+    context = {
+        'myynti': myynti
+    }
+    return render(request, 'taide/myyntiraportti.html', context)
+
+
+def MailiCreate(request, pk):
+
+    err_msg = ''
+    message = ''
+    kysytty = TauluTaulu.objects.prefetch_related('kysytaulusta_set').get(id=pk)
+
+    fields = [
+        'tiedustelu',
+        'maili'
+    ]
+
+    if request.method == 'POST':
+        form = Tiedustelu(request.POST)
+        if form.is_valid():
+            form.save()
+            message = 'Kiitos, sähköpostiisi toimitetaan lisää tietoja taulusta.'
+            print(form)
+        else:
+            message = err_msg
+    form = Tiedustelu()
+
+    context = {
+        'message': message,
+        'form': form,
+        'kysytty': kysytty
+    }
+    return render(request, 'taide/kysytaulusta_form.html', context)
 
 
 class Raportti(generic.ListView):
