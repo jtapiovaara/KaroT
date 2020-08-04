@@ -23,6 +23,7 @@
             <td>{{ item.tiedustelu }}</td>
             <td>{{ item.maili }}</td>
             <td>{{ item.aika }}</td>
+            <td><a href="{% url 'taide:printrequest' item.tiedustelu.pk %}">Tulosta tarjous</a></td>
           </tr>
         {% endfor %}
       </tbody>

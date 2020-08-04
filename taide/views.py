@@ -13,6 +13,7 @@ from weasyprint import HTML
 
 
 # Create your views here.
+
 class TaideLista(generic.ListView):
     model = TauluTaulu
 
@@ -21,6 +22,10 @@ class TaideLista(generic.ListView):
 
     def onexhibit(self):
         return TauluTaulu.objects.filter(tila__exact='Näyttelyssä')
+
+
+class TaideDetail(generic.DetailView):
+    model = TauluTaulu
 
 
 def sold(request):
@@ -65,7 +70,7 @@ class Raportti(generic.ListView):
 
 
 def html_to_pdf_view(request, *args):
-    paragraphs = TauluTaulu.objects.filter(*args)
+    paragraphs = TauluTaulu.objects.filter(tila__exact='Näyttelyssä')
     html_string = render_to_string('taide/taide_lista_pdf.html', {'paragraphs': paragraphs})
 
     html = HTML(string=html_string, base_url=request.build_absolute_uri())

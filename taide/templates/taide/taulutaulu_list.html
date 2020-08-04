@@ -13,26 +13,21 @@
 <hr>
      <div class="container">
          <div class="card-columns">
-
-{#         Voi olla view.onsale, view.sold tai view.onexhibit tai object_list#}
-        {% for taulu in object_list %}
-{#        {% for taulu in view.sold %}#}
-{#        {% for taulu in view.onexhibit %}#}
-{#        {% for taulu in view.onsale %}#}
+             {% for taulu in view.onsale %}
             <div class="card card-body shadow">
+            <a href="{% url 'taide:taulu' taulu.pk %}">
                 <img class="rounded img-fluid" src="{% static "images/" %}{{ taulu.kuva }}" data-toggle="tooltip" title='{{ taulu.tarina }}'>
-                <div>
-                    <h3 class="card-title">{{ taulu.nimi  }}    <a href="{% url 'taide:printrequest' taulu.pk %}"
-                       class="btn btn-outline-info btn-sm">
-                        Tulosta tarjous</a></h3>
-                </div>
+            </a>
+
+            <div class="card card-footer">
                 <p>{{ taulu.materiaali }}, {{ taulu.koko }} cm</p>
                 <p>{{ taulu.hinta }} €</p>
                 <small>
                     <a class="nav-link" href="{% url 'taide:maili' taulu.pk %}"> Kiinnostuitko? Jätä yhteystietosi.</a>
                 </small>
             </div>
-        {% endfor %}
+                             </div>
+             {% endfor %}
          </div>
      </div>
 <hr>

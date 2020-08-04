@@ -23,6 +23,9 @@
             <td>{{ item.nimi }}</td>
             <td>{{ item.omistaja }}</td>
             <td>{{ item.hinta }}</td>
+            <td><a href="{% url 'taide:taulu' item.id %}"> Katsele </a>
+            </td>
+
           </tr>
         {% endfor %}
       </tbody>
