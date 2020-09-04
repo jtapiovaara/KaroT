@@ -1,7 +1,15 @@
 from django.contrib import admin
 
 
-from .models import TauluTaulu, KysyTaulusta
+from .models import TaiteilijaTaulu, TauluTaulu, KysyTaulusta
 
-admin.site.register(TauluTaulu)
+
+class TauluTauluAdmin(admin.ModelAdmin):
+    list_display = ('nimi', 'tila')
+    list_filter = ['tila']
+    list_editable = ('tila',)
+
+
+admin.site.register(TaiteilijaTaulu)
+admin.site.register(TauluTaulu, TauluTauluAdmin)
 admin.site.register(KysyTaulusta)
